@@ -1,8 +1,7 @@
 #! /usr/bin/env python
 
-import os
-import string
 
+# part of "newstuff" fork
 
 import os
 import array as array
