@@ -1,20 +1,26 @@
 #! /usr/bin/env python
 
-import os
-import string
-
+#edited on c9
 
 import os
 import array as array
+import sys
 
-import string
-
-print( "hello" + " STRANGER")
-
-#mypath = '/store/20136_ROCKDOG/assets/development/FxDev/fx/waterFloat/gravity_field/v0019'
+if (len(sys.argv)==1):
+    print "usage >>seqCheck.py [fileRootName, path ('.') for cwd]"
+    sys.exit()
+elif (len(sys.argv)==2):
+    fileRootName = sys.argv[1]
+    rootpath = os.getcwd()
+elif (len(sys.argv)==3):
+    fileRootName = sys.argv[1]
+    rootpath = os.getcwd() + sys.argv[2]
+    print rootpath
+else:
+    print "usage >>seqCheck.py [fileRootname, path ('.') for cwd]"
+'''
 mypath = os.getcwd()
 
-'''
 print("Path at terminal when executing this file")
 print(os.getcwd() + "\n")
 
@@ -32,26 +38,28 @@ print(path + ' --> ' + file + "\n")
 print("This file directory only")
 print(os.path.dirname(full_path))
 '''
-
 f = []
-for (dirpath,dirnames,filenames) in os.walk(mypath):
+
+for (dirpath,dirnames,filenames) in os.walk(rootpath):
         #print filenames
         f.extend(filenames)
         break
-        
+
 print len(f)
+
 
 num = []
 #narray = array("i")
 for x in f:
     y = x.split(".")
-    try:
-        z =int(y[1])
-    except (SyntaxError, ValueError):
-        pass
-    num.append(z)
+    if len(y) >1:
+        try:
+            z =int(y[1])
+        except (SyntaxError, ValueError):
+            pass
+        num.append(z)
     #narray.append(z)
-        
+
 mylist = sorted(num)
 end = len(mylist)
 start = mylist[0]
@@ -62,17 +70,8 @@ for x in mylist:
         print(str(start) + " is missing")
         break
     start += 1
-    
+
 print("There are "+ str(end) + " files")
-
-
-
-
-count = 0
-
-
-
-
 
 
 #x = os.walk(mypath)
