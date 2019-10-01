@@ -1,13 +1,11 @@
 #! /usr/bin/env python
 
-#edited on c9
-
 import os
 import array as array
 import sys
 
 if (len(sys.argv)==1):
-    print "usage >>seqCheck.py [fileRootName, path ('.') for cwd]"
+    print("usage >>seqCheck.py [fileRootName, path ('.') for cwd]")
     sys.exit()
 elif (len(sys.argv)==2):
     fileRootName = sys.argv[1]
@@ -17,7 +15,7 @@ elif (len(sys.argv)==3):
     rootpath = os.getcwd() + sys.argv[2]
     print rootpath
 else:
-    print "usage >>seqCheck.py [fileRootname, path ('.') for cwd]"
+    print("usage >>seqCheck.py [fileRootname, path ('.') for cwd]")
 '''
 mypath = os.getcwd()
 
@@ -72,8 +70,3 @@ for x in mylist:
     start += 1
 
 print("There are "+ str(end) + " files")
-
-
-#x = os.walk(mypath)
-#for y in x:
-#    print y
